@@ -1,0 +1,42 @@
+<div>
+    <div class="modal-header">
+        <h6 class="title-field">Criar Funcionário</h6>
+        <button mat-icon-button (click)="closeModal()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>
+        <form class="employee-modal-add-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['name'].errors}" />
+                <div *ngIf="submitted && f['name'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['name'].errors!['required']">Nome é obrigatório</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="admissionDate">Data de Admissão:</label>
+                <input type="date" formControlName="admissionDate" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['admissionDate'].errors}" />
+                <div *ngIf="submitted && f['admissionDate'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['admissionDate'].errors!['required']">Data de admissão é obrigatória</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company">Empresa:</label>
+                <select formControlName="company" class="form-control" [ngClass]="{'is-invalid': submitted && f['company'].errors}">
+                    <option [ngValue]="company" *ngFor="let company of companies">{{company.name}}</option>
+                </select>
+                <div *ngIf="submitted && f['company'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['company'].errors!['required']">Empresa é obrigatório</div>
+                </div>
+            </div>
+
+            <button [disabled]="loading" color="primary" mat-raised-button>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Criar
+            </button>
+        </form>
+    </div>
+</div>

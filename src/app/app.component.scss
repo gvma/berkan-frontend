@@ -1,0 +1,25 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    gap: 25px;
+}
+
+.header-div {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    
+    &:hover {
+        background-color: #1d8ae0;
+    }
+}
+
+.active {
+    background-color: #1d8ae0;
+}
