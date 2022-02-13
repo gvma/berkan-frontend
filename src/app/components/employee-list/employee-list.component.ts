@@ -79,7 +79,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    if (confirm('Deseja deletar esse empregado?')) {
+    if (confirm('Deseja deletar esse funcionário?')) {
       this.employeeService.deleteEmployee(id).subscribe(
         result => {
           this.ngAfterViewInit()

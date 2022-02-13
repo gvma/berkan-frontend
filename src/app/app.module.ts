@@ -22,6 +22,10 @@ import { registerLocaleData } from '@angular/common';
 import localePT from "@angular/common/locales/pt";
 import { EmployeeModalAddComponent } from './components/employee-modal-add/employee-modal-add.component';
 import { EmployeeModalEditComponent } from './components/employee-modal-edit/employee-modal-edit.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
+import { CompanyModalComponent } from './components/company-modal/company-modal.component';
+import { CompanyModalAddComponent } from './components/company-modal-add/company-modal-add.component';
+import { CompanyModalEditComponent } from './components/company-modal-edit/company-modal-edit.component';
 registerLocaleData(localePT);
 
 @NgModule({
@@ -30,7 +34,11 @@ registerLocaleData(localePT);
     EmployeeListComponent,
     EmployeeModalComponent,
     EmployeeModalAddComponent,
-    EmployeeModalEditComponent
+    EmployeeModalEditComponent,
+    CompanyListComponent,
+    CompanyModalComponent,
+    CompanyModalAddComponent,
+    CompanyModalEditComponent
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,8 @@ export class EmployeeService {
   }
 
   updateEmployee(id: number, employee: Employee): Observable<Employee> {
-    console.log(employee)
+    employee.company.id = id;
+    employee.id = id
     return this.httpClient.put<Employee>(this.API + `/${id}`, employee).pipe(
       first()
     )

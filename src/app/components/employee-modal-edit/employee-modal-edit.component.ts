@@ -26,8 +26,8 @@ export class EmployeeModalEditComponent implements OnInit {
     private companyService: CompanyService,
     @Inject(MAT_DIALOG_DATA) public data: Employee
   ) {
-    this.employee = data;
     console.log(data)
+    this.employee = data;
     this.companyService.getCompanies().subscribe(
       response => {
         this.companies = response
