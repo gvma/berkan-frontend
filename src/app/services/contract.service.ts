@@ -1,3 +1,4 @@
+import { ServiceProvision } from './../models/serviceProvision.model';
 import { Contract } from './../models/contract.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -38,6 +39,24 @@ export class ContractService {
 
   deleteContract(id: number): Observable<Contract> {
     return this.httpClient.delete<Contract>(this.API + `/${id}`).pipe(
+      first()
+    )
+  }
+
+  associateEmployeeToContract(serviceProvision: ServiceProvision): Observable<ServiceProvision> {
+    return this.httpClient.post<ServiceProvision>(this.API + '/service-provision', serviceProvision).pipe(
+      first()
+    )
+  }
+
+  getServiceProvisions(): Observable<ServiceProvision[]> {
+    return this.httpClient.get<ServiceProvision[]>(this.API + '/service-provision').pipe(
+      first()
+    )
+  }
+
+  deleteServiceProvision(id: number): Observable<ServiceProvision> {
+    return this.httpClient.delete<ServiceProvision>(this.API + `/service-provision/${id}`).pipe(
       first()
     )
   }

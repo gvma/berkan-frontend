@@ -1,0 +1,50 @@
+<div class="service-provision-table mat-elevation-z8">
+  <mat-toolbar color="primary">
+    Prestação de Serviço
+    <button class="toolbar-button" mat-icon-button (click)="provideService()">
+      <mat-icon>work</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="example-loading-shade" *ngIf="(resultLength == 0) || isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="resultLength === 0">
+      Não há nenhuma prestação de serviço cadastrada
+    </div>
+  </div>
+  
+  <table *ngIf="resultLength !== 0" mat-table [dataSource]="data">
+
+    <ng-container matColumnDef="employee">
+      <th mat-header-cell *matHeaderCellDef> Empregado </th>
+      <td mat-cell *matCellDef="let contract"> {{contract.employee.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hiringCompany">
+      <th mat-header-cell *matHeaderCellDef> Empresa Contratante </th>
+      <td mat-cell *matCellDef="let contract"> {{contract.contract.hiredCompany.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="initialDate">
+      <th mat-header-cell *matHeaderCellDef> Data Inicial </th>
+      <td mat-cell *matCellDef="let contract">{{contract.contract.initialDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> Data Final </th>
+      <td mat-cell *matCellDef="let contract">{{contract.contract.endDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let serviceProvision">
+        <button mat-icon-button (click)="deleteServiceProvision(serviceProvision.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

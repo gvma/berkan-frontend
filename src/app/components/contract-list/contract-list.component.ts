@@ -1,3 +1,4 @@
+import { ServiceProvisionAddModalComponent } from './../service-provision-add-modal/service-provision-add-modal.component';
 import { ContractModalComponent } from './../contract-modal/contract-modal.component';
 import { ContractAddModalComponent } from './../contract-add-modal/contract-add-modal.component';
 import { ContractService } from './../../services/contract.service';
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, merge, of, startWith, switchMap } from 'rxjs';
+import { ServiceProvision } from 'src/app/models/serviceProvision.model';
 
 @Component({
   selector: 'app-contract-list',
@@ -42,7 +44,6 @@ export class ContractListComponent implements OnInit {
           this.isRateLimitReached = false;
 
           const data = result
-          console.log(data)
           // this.resultsLength = result.length;
           return data;
         }),
@@ -70,12 +71,22 @@ export class ContractListComponent implements OnInit {
   }
 
   deleteContract(id: number) {
-    if (confirm('Deseja deletar esse funcionário?')) {
+    if (confirm('Deseja deletar esse contrato?')) {
       this.contractService.deleteContract(id).subscribe(
         result => {
           this.ngAfterViewInit()
         }
       );
     }
+  }
+
+  provideService() {
+    const dialog = this.dialog.open(ServiceProvisionAddModalComponent)
+    dialog.afterClosed().subscribe(result => {
+      if (result == 'CANCEL') {
+        return;
+      }
+      this.ngAfterViewInit();
+    });
   }
 }

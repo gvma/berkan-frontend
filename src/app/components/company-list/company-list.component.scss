@@ -1,5 +1,8 @@
 .employee-table{
     width: 100%;
+    position: relative;
+    overflow: auto;
+    height: 300px;
 }
 
 table {
@@ -10,4 +13,9 @@ table {
 .mat-header-cell {
     text-align: center;
     color: #000000;
+}
+
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
 }

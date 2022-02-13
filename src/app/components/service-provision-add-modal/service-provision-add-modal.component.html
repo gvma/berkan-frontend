@@ -1,0 +1,70 @@
+<div>
+    <div class="modal-header">
+        <h6 class="title-field">Criar Contrato</h6>
+        <button mat-icon-button (click)="closeModal()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>
+        <form class="contract-modal-add-form" [formGroup]="serviceProvisionForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="employee">Funcionário da Empresa Contratada:</label>
+                <select formControlName="employee" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['employee'].errors}">
+                    <option [ngValue]="employee" *ngFor="let employee of employees">{{employee.name}}</option>
+                </select>
+                <div *ngIf="submitted && f['employee'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['employee'].errors!['required']">Funcionário é obrigatório</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contract">Contrato:</label>
+                <select formControlName="contract" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['contract'].errors}">
+                    <option [ngValue]="contract" *ngFor="let contract of contracts">
+                        Contratante: {{contract.hiringCompany.name}} e contratada: {{contract.hiredCompany.name}}
+                    </option>
+                </select>
+                <div *ngIf="submitted && f['employee'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['employee'].errors!['required']">Funcionário é obrigatório</div>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="company">Empresa Contratada:</label>
+                <select formControlName="hiredCompany" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['company'].errors}">
+                    <option [ngValue]="company" *ngFor="let company of companies">{{company.name}}</option>
+                </select>
+                <div *ngIf="submitted && f['company'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['company'].errors!['required']">Empresa Contratada é obrigatória</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="initialDate">Data Inicial:</label>
+                <input type="date" formControlName="initialDate" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['initialDate'].errors}" />
+                <div *ngIf="submitted && f['initialDate'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['initialDate'].errors!['required']">Data Inicial é obrigatória</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endDate">Data Final:</label>
+                <input type="date" formControlName="endDate" class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f['endDate'].errors}" />
+                <div *ngIf="submitted && f['endDate'].errors!" class="invalid-feedback">
+                    <div *ngIf="f['endDate'].errors!['required']">Data Final é obrigatória</div>
+                </div>
+            </div> -->
+
+
+            <button [disabled]="loading" color="primary" mat-raised-button>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Criar
+            </button>
+
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+        </form>
+    </div>
+</div>

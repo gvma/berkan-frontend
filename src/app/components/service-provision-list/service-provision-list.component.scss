@@ -1,0 +1,49 @@
+.service-provision-table {
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    height: 300px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-header-cell {
+    text-align: center;
+    color: #000000;
+}
+
+/* Structure */
+.example-container {
+    position: relative;
+}
+
+.example-table-container {
+    position: relative;
+    overflow: auto;
+}
+
+.example-loading-shade {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-rate-limit-reached {
+    // max-width: 360px;
+    text-align: center;
+}

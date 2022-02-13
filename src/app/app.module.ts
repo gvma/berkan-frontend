@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
@@ -29,6 +30,8 @@ import { CompanyModalEditComponent } from './components/company-modal-edit/compa
 import { ContractListComponent } from './components/contract-list/contract-list.component';
 import { ContractAddModalComponent } from './components/contract-add-modal/contract-add-modal.component';
 import { ContractModalComponent } from './components/contract-modal/contract-modal.component';
+import { ServiceProvisionAddModalComponent } from './components/service-provision-add-modal/service-provision-add-modal.component';
+import { ServiceProvisionListComponent } from './components/service-provision-list/service-provision-list.component';
 registerLocaleData(localePT);
 
 @NgModule({
@@ -44,7 +47,9 @@ registerLocaleData(localePT);
     CompanyModalEditComponent,
     ContractListComponent,
     ContractAddModalComponent,
-    ContractModalComponent
+    ContractModalComponent,
+    ServiceProvisionAddModalComponent,
+    ServiceProvisionListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ registerLocaleData(localePT);
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
