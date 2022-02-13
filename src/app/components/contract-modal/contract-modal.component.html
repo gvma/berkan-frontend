@@ -1,0 +1,26 @@
+<div>
+    <div class="modal-header">
+        <h3>Contrato</h3>
+        <button mat-icon-button (click)="closeModal()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>
+        <div>
+            <h4 class="admission-date-title">Empresa Contratante</h4>
+            <span>{{data.hiringCompany.name}}</span>
+        </div>
+        <div>
+            <h4 class="admission-date-title">Empresa</h4>
+            <span>{{data.hiredCompany.name}}</span>
+        </div>
+        <div>
+            <h4 class="admission-date-title">Data Inicial</h4>
+            <span>{{data.initialDate | date: "mediumDate":"GMT":"pt-BR"}}</span>
+        </div>
+        <div>
+            <h4 class="admission-date-title">Data Final</h4>
+            <span>{{data.endDate | date: "mediumDate":"GMT":"pt-BR"}}</span>
+        </div>
+    </div>
+</div>

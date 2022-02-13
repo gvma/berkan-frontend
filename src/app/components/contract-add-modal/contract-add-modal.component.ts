@@ -1,26 +1,26 @@
-import { CompanyService } from './../../services/company.service';
-import { Company } from './../../models/company.model';
-import { EmployeeService } from 'src/app/services/employee.service';
+import { ContractService } from './../../services/contract.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { first } from 'rxjs';
+import { CompanyService } from 'src/app/services/company.service';
+import { Company } from 'src/app/models/company.model';
 
 @Component({
-  selector: 'app-employee-modal-add',
-  templateUrl: './employee-modal-add.component.html',
-  styleUrls: ['./employee-modal-add.component.scss'],
+  selector: 'app-contract-add-modal',
+  templateUrl: './contract-add-modal.component.html',
+  styleUrls: ['./contract-add-modal.component.scss']
 })
-export class EmployeeModalAddComponent implements OnInit {
-  employeeForm: FormGroup;
+export class ContractAddModalComponent implements OnInit {
+  contractForm: FormGroup;
   submitted = false;
   loading = false;
   companies: Company[] = []
 
   constructor(
-    public dialogRef: MatDialogRef<EmployeeModalAddComponent>,
+    public dialogRef: MatDialogRef<ContractAddModalComponent>,
     private formBuilder: FormBuilder,
-    private employeeService: EmployeeService,
+    private contractService: ContractService,
     private companyService: CompanyService
   ) {
     this.companyService.getCompanies().subscribe(
@@ -31,25 +31,26 @@ export class EmployeeModalAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeeForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      admissionDate: ['', Validators.required],
-      company: ['', Validators.required],
+    this.contractForm = this.formBuilder.group({
+      hiringCompany: ['', Validators.required],
+      hiredCompany: ['', Validators.required],
+      initialDate: ['', Validators.required],
+      endDate: ['', Validators.required],
     });
   }
 
-  get f() { return this.employeeForm.controls; }
+  get f() { return this.contractForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.employeeForm.invalid) {
+    if (this.contractForm.invalid) {
       return;
     }
 
     this.loading = true;
-    this.employeeService.addEmployee(this.employeeForm.value).pipe(first())
+    this.contractService.addContract(this.contractForm.value).pipe(first())
       .subscribe(
         response => {
           this.dialogRef.close(response);

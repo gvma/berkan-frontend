@@ -26,6 +26,9 @@ import { CompanyListComponent } from './components/company-list/company-list.com
 import { CompanyModalComponent } from './components/company-modal/company-modal.component';
 import { CompanyModalAddComponent } from './components/company-modal-add/company-modal-add.component';
 import { CompanyModalEditComponent } from './components/company-modal-edit/company-modal-edit.component';
+import { ContractListComponent } from './components/contract-list/contract-list.component';
+import { ContractAddModalComponent } from './components/contract-add-modal/contract-add-modal.component';
+import { ContractModalComponent } from './components/contract-modal/contract-modal.component';
 registerLocaleData(localePT);
 
 @NgModule({
@@ -38,7 +41,10 @@ registerLocaleData(localePT);
     CompanyListComponent,
     CompanyModalComponent,
     CompanyModalAddComponent,
-    CompanyModalEditComponent
+    CompanyModalEditComponent,
+    ContractListComponent,
+    ContractAddModalComponent,
+    ContractModalComponent
   ],
   imports: [
     BrowserModule,

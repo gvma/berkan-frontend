@@ -29,13 +29,9 @@ export class EmployeeListComponent implements OnInit {
     public dialog: MatDialog,
     private employeeService: EmployeeService,
     private _httpClient: HttpClient
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
-
-
   }
 
   ngAfterViewInit(): void {
@@ -64,7 +60,7 @@ export class EmployeeListComponent implements OnInit {
       .subscribe(data => (this.data = data));
   }
 
-  openDialog(employee: Employee) {
+  openEmployee(employee: Employee) {
     this.dialog.open(EmployeeModalComponent, { data: employee })
   }
 

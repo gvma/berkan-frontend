@@ -1,3 +1,4 @@
+import { ContractListComponent } from './components/contract-list/contract-list.component';
 import { CompanyListComponent } from './components/company-list/company-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'employee', pathMatch: 'full' },
   { path: 'employee', component: EmployeeListComponent },
   { path: 'company', component: CompanyListComponent },
+  { path: 'contract', component: ContractListComponent },
 
   { path: '**', redirectTo: 'employee' }
 ];
