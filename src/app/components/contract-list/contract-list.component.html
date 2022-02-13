@@ -2,9 +2,6 @@
   <div class="contract-table mat-elevation-z8">
     <mat-toolbar color="primary">
       Contratos
-      <button class="toolbar-button" mat-icon-button (click)="provideService()">
-        <mat-icon>work</mat-icon>
-      </button>
     </mat-toolbar>
     <table mat-table [dataSource]="data">
   
@@ -30,7 +27,7 @@
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button (click)="addContract()">
+          <button matTooltip="Adicionar um contrato" mat-icon-button (click)="addContract()">
             <mat-icon>person_add</mat-icon>
           </button>
           <!-- <button mat-icon-button (click)="provideService()">
@@ -38,12 +35,8 @@
           </button> -->
         </th>
   
-        <td mat-cell *matCellDef="let contract">
-          <button mat-icon-button (click)="openContract(contract)">
-            <mat-icon>remove_red_eye</mat-icon>
-          </button>
-  
-          <button mat-icon-button (click)="deleteContract(contract.id)">
+        <td mat-cell *matCellDef="let contract">  
+          <button matTooltip="Deletar esse contrato" mat-icon-button (click)="deleteContract(contract.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -54,7 +47,7 @@
     </table>
   </div>
   
-  <div class="service-provision-table">
+  <div *ngIf="resultLength > 0" class="service-provision-table">
     <app-service-provision-list></app-service-provision-list>
   </div>
 </div>

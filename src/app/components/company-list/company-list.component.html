@@ -1,7 +1,7 @@
 <div class="company-table mat-elevation-z8">
     <mat-toolbar color="primary">
       Empresas
-      <button class="toolbar-button" mat-icon-button (click)="addCompany()">
+      <button matTooltip="Criar uma Empresa" class="toolbar-button" mat-icon-button (click)="addCompany()">
         <mat-icon>person_add</mat-icon>
       </button>
     </mat-toolbar>
@@ -15,7 +15,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let company"> 
-          <button mat-icon-button (click)="deleteCompany(company.id)">
+          <button matTooltip="Deletar essa empresa" mat-icon-button (click)="deleteCompany(company.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

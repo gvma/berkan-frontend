@@ -44,7 +44,7 @@ export class ContractListComponent implements OnInit {
           this.isRateLimitReached = false;
 
           const data = result
-          // this.resultsLength = result.length;
+          this.resultLength = result.length;
           return data;
         }),
         catchError(error => {
@@ -87,6 +87,7 @@ export class ContractListComponent implements OnInit {
         return;
       }
       this.ngAfterViewInit();
+      this.ngOnInit();
     });
   }
 }

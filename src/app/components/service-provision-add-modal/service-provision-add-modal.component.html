@@ -1,12 +1,12 @@
 <div>
     <div class="modal-header">
-        <h6 class="title-field">Criar Contrato</h6>
+        <h6 class="title-field">Criar Prestação de Serviço</h6>
         <button mat-icon-button (click)="closeModal()">
             <mat-icon>close</mat-icon>
         </button>
     </div>
     <div mat-dialog-content>
-        <form class="contract-modal-add-form" [formGroup]="serviceProvisionForm" (ngSubmit)="onSubmit()">
+        <form class="service-provision-modal-add-form" [formGroup]="serviceProvisionForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="employee">Funcionário da Empresa Contratada:</label>
                 <select formControlName="employee" class="form-control"

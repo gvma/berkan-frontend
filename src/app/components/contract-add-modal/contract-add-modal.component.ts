@@ -39,7 +39,7 @@ export class ContractAddModalComponent implements OnInit {
     });
   }
 
-  get f() { return this.contractForm.controls; }
+  get f() { console.log(this.contractForm.controls); return this.contractForm.controls; }
 
   onSubmit() {
     this.submitted = true;

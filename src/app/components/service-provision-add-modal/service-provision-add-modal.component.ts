@@ -61,7 +61,7 @@ export class ServiceProvisionAddModalComponent implements OnInit {
           this.dialogRef.close(response);
         },
         err => {
-          this.error = err.error;
+          this.error = err.error.text;
           this.loading = false;
         }
       )
