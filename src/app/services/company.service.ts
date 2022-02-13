@@ -14,19 +14,13 @@ export class CompanyService {
 
   getCompanies(): Observable<Company[]> {
     return this.httpClient.get<Company[]>(this.API).pipe(
-      first(),
-      tap(
-        data => console.log(data)
-      )
+      first()
     );
   }
 
   addCompany(Company: Company): Observable<any> {
     return this.httpClient.post(this.API, Company).pipe(
-      first(),
-      tap(
-        data => console.log(data)
-      )
+      first()
     );
   }
 

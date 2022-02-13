@@ -1,3 +1,4 @@
+import { EmployeeModalEditComponent } from './../employee-modal-edit/employee-modal-edit.component';
 import { EmployeeModalAddComponent } from './../employee-modal-add/employee-modal-add.component';
 import { EmployeeModalComponent } from './../employee-modal/employee-modal.component';
 import { HttpClient } from '@angular/common/http';
@@ -50,16 +51,13 @@ export class EmployeeListComponent implements OnInit {
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
 
-          console.log(result)
           const data = result
-          console.log(data)
           // this.resultsLength = result.length;
           return data;
         }),
         catchError(error => {
           this.isLoadingResults = false;
           this.isRateLimitReached = true;
-          console.log(error);
           return of([]);
         })
       )
@@ -88,5 +86,15 @@ export class EmployeeListComponent implements OnInit {
         }
       );
     }
+  }
+
+  updateEmployee(employee: Employee) {
+    const dialog = this.dialog.open(EmployeeModalEditComponent, { data: employee })
+    dialog.afterClosed().subscribe(result => {
+      if (result == 'CANCEL') {
+        return;
+      }
+      this.ngAfterViewInit();
+    });
   }
 }

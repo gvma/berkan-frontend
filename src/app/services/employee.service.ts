@@ -14,19 +14,13 @@ export class EmployeeService {
 
   getEmployees(): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(this.API).pipe(
-      first(),
-      tap(
-        data => console.log(data)
-      )
+      first()
     );
   }
 
   addEmployee(employee: Employee): Observable<any> {
     return this.httpClient.post(this.API, employee).pipe(
-      first(),
-      tap(
-        data => console.log(data)
-      )
+      first()
     );
   }
 
@@ -37,6 +31,7 @@ export class EmployeeService {
   }
 
   updateEmployee(id: number, employee: Employee): Observable<Employee> {
+    console.log(employee)
     return this.httpClient.put<Employee>(this.API + `/${id}`, employee).pipe(
       first()
     )

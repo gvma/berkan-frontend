@@ -34,7 +34,7 @@
         <button mat-icon-button (click)="openDialog(employee)">
           <mat-icon>remove_red_eye</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="updateEmployee(employee)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button (click)="deleteEmployee(employee.id)">
@@ -42,7 +42,6 @@
         </button>
       </td>
     </ng-container>
-    
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
